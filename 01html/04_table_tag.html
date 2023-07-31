@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table tag</title>
+    <style>
+        table, td, th {width : 500px; border: 1px solid black; border-collapse: collapse;}
+    </style>
+</head>
+<body>
+    <h1>Table tag</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>요일</th>
+                <th>월</th>
+                <th>화</th>
+                <th>수</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="2">1교시</td>
+                <td><a href="https://google.co.kr">java</a></td>
+                <td>python</td>
+                <td>java script</td>
+            </tr>
+            <tr>
+                <td>Spring boot</td>
+                <td>C#</td>
+                <td>Machin Learning</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">비고</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>
