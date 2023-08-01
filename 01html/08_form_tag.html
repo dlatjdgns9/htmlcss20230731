@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset{width: 250px;}.fixwidth{display: inline-block; width: 70px;}
+        .fixwidth2{display: inline-block; width: 50px; text-align: right;}
+        .examplestyle{margin: 30px 20px; padding: 10px 20px; background-color: antiquewhite;}
+    </style>
+    
+</head>
+<body>
+    <a href="/01html/01_intro_li.html">Home</a>
+    <h1>입력 양식 태그</h1>
+    <hr>
+
+    <li>태그의 <span class="fixwidth">id</span>속성은 document에서 접근할 때 사용된다. </li>
+    <li>태그의 <span class="fixwidth">name</span>속성은 get/post로 전송시에 사용된다.</li>
+    <li>button태그의 <span class="fixwidth">name</span>속성은 button, submit(default), reset으로 나뉜다.</li>
+
+    <form action="09_form_tag2.html" method="get" name="form">
+        <fieldset>
+            <legend>로그인</legend>
+            <label for="id"><span class="fixwidth">ID</span></label><input type="text" name="id" id="id" placeholder="ID"><br>
+            <label for="pass"><span class="fixwidth">Password</span></label><input type="password" name="pass" id="pass" placeholder="Password"><br>
+            <input type="submit" value="로그인" id="login" name="login">
+            <input type="button" value="가입" id="join">
+            <input type="reset" value="취소" id="reset"><br>
+            
+        </fieldset>
+    </form>
+
+    <form action="09_form_tag2.html" id="frm2">
+    <div class="examplestyle">
+        checkbox는 name속성을 통해서 그룹핑한다. 전송시 복수 데이터 전송<br>
+        <label for="cb1"><span class="fixwidth2">축구</span></label>
+        <input type="checkbox" name="hobby" id="cb1" value="축구" checked>
+        <label for="cb2"><span class="fixwidth2">야구</span></label>
+        <input type="checkbox" name="hobby" id="cb2" value="야구">
+        <label for="cb3"><span class="fixwidth2">농구</span></label>
+        <input type="checkbox" name="hobby" id="cb3" value="농구"><br>
+    </div>
+
+    <div class="examplestyle">
+        radio는 name속성을 통해서 그룹핑한다. 선택은 오직 하나만 가능.<br>
+        <label for="rb1"><span class="fixwidth2">10대</span></label>
+        <input type="radio" name="ageGroup" id="rb1" value="10대" checked>
+        <label for="rb2"><span class="fixwidth2">20대</span></label>
+        <input type="radio" name="ageGroup" id="rb2" value="20대">
+        <label for="rb3"><span class="fixwidth2">30대</span></label>
+        <input type="radio" name="ageGroup" id="rb3" value="30대">
+    </div>
+
+    <div class="examplestyle">
+        전화번호 <br>
+        <select name="tel1" id="tel1">
+            <option value="">선택</option>
+            <option value="010" selected>010</option>
+            <option value="011">011</option>
+            <option value="016">016</option>
+        </select>-<input type="text" name="tel2" id="tel2">-<input type="text" name="tel3" id="tel3">
+        <input type="hidden" name="tel" id="tel">
+        <label >등록일<input type="date" name="calendar" id = "calendar" min="1900-01-01T00:00" max="2100-12-31T00:00" pattern="\d(4)-\d(2)-\d(2)"></label>
+        <input type="datetime-local" name="calendar2" id="calendar2">
+    </div>
+
+    <div class="examplestyle">
+        <textarea name="textarea" id="textarea" cols="30" rows="10"></textarea>
+    </div>
+
+    <div class="examplestyle">
+        <button type="submit" id="submit2">전송</button>
+        <button type="button">뒤로가기</button>  <!-- button에 type 속성이 없을 경우는 submit이 기본값 -->
+        <button type="reset">취소</button>
+    </div>
+    </form>
+    
+    <script>
+        document.querySelector("#submit2").onclick = function (e) {          
+            e.preventDefault();
+            document.querySelector("#tel").value = document.querySelector("#tel1").value + document.querySelector("#tel2").value + document.querySelector("#tel3").value;
+            document.querySelector("#frm2").submit();
+        }
+        calendar = document.querySelector("#calendar")
+        calendar.value = toDate()
+        function toDate(calendar) {
+            today = new Date()
+            year = today.getFullYear(); Month = today.getMonth() +1; date = today.getDate();
+            return year + "-" + month + "-" + date
+        }
+        
+        function twoLength(num) {
+            return (num<10)?"0"+num:num
+        }
+
+        function toDayTime() {
+            today = new Date()
+            hour = today.getHours(); minute = twoLength(today.getMinutes()) ; second = twoLength(today.getSeconds());
+            return toDate + "T" + twoLength(hour) + twoLength(minute)
+        }
+        document.querySelector("#calendar2").value=toDayTime();
+        console.log(calendar.value)
+
+        document.querySelector("#login").onclick = function (event) {
+            event.preventDefault();
+            id = document.querySelector("#id").value;
+            if(id == "") {
+                alert("아이디를 확인해 주세요.")
+                return;
+            }
+            alert('버튼을 누르기만 했어요.');
+            document.form.submit();
+        }
+        document.querySelector("#join"). onclick = function () {
+            alert('버튼을 누르기만 했어요.');
+        }
+        document.querySelector("#reset"). onclick = function () {
+            e.preventDefault();
+            alert('버튼을 누르기만 했어요.');
+            document.frm.reset();
+        }
+    </script>
+</body>
+</html>

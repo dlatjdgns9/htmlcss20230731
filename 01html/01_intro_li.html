@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome 환영합니다.</title>
+    <style>
+        h1{background-color: rgb(0, 225, 255); color: white;}
+    </style>
+    
+</head>
+<body>
+    <h1>HTML5</h1>
+    <div>
+        <p>Hyper Text Markup Language</p>
+        <h3> 목록태그 &ltol&gt태그 (숫자(default),알파벳대소문자(A~Z, a~z), 로마숫자(i,I))</h3>
+        <ol type="I"> 
+            <li>
+                <a href="02_fonttag.html">글자 관련 태그</a><br>
+            </li>
+            <li>
+                <a href="03_a_tag.html#9">a 태그</a><br>
+            </li>
+            <li>
+                <a href="04_table_tag.html">테이블 태그</a><br>
+            </li>
+            <li>
+                <a href="05_media_tag.html">미디어 태그</a><br>
+            </li>
+            <li>
+                <a href="06_div_tag.html">공간 태그</a><br>
+            </li>
+            <li>
+                <a href="07_semantic_tag.html">semantic 태그</a><br>
+            </li>
+            <li>
+                <a href="08_form_tag.html">입력 양식 태그</a><br>
+            </li>
+        </ol>
+    </div>
+    <div>
+        <p>Hyper Text Markup Language</p>
+        <h3> 목록태그 &ltul&gt태그 순서가 없다. ○(circle), ■(square), ●(disk)</h3>
+        <ul type="square"> 
+            <li>
+                <a href="03_a_tag.html#9">03_a_tag.html A 태그 실습</a><br>
+            </li>
+            <li>
+                <a href="03_a_tag.html#9">03_a_tag.html A 태그 실습</a><br><br><br><br>
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    document.querySelector("p").onclick = function (e) {
+        alert("Hello HTML?")
+    }
+</script>
+</html>
