@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join</title>
+    <style>
+        fieldset{width: 600px;}.fixwidth{display: inline-block; width: 100px;}
+    </style>
+</head>
+<body>
+    <h1>회원 가입 페이지</h1><hr>
+    ID, Pass, name, gender, email, mobile
+    <br><br><br>
+
+    <fieldset>
+        <legend>회원가입</legend>
+        <label for="id"><span class="fixwidth">새로운 ID</span></label><input type="text" name="id" id="id" placeholder="ID">
+        <input type="button" value="중복확인" id="distinct" name="distinct"><br>
+        <label for="pw"><span class="fixwidth">새로운 PW</span></label><input type="text" name="pw" id="pw" placeholder="Password"><br><br>
+        <label for="name"><span class="fixwidth">이름</span></label><input type="text" name="name" id="name" placeholder="이름"><br>
+
+        <label for="name"><span class="fixwidth">이메일</span></label><input type="text" name="name" id="name" placeholder="이메일">
+        @ 
+        <select name="site" id="site">
+            <option value="">선택</option>
+            <option value="naver.com">naver.com</option>
+            <option value="gmail.com">gmail.com</option>
+            <option value="nate.com">nate.com</option>
+            <option value="daum.net">daum.net</option>
+        </select><br>
+        <label for="tel"><span class="fixwidth">전화번호</span></label>
+        <select name="tel" id="tel">
+            <option value="">선택</option>
+            <option value="010">010</option>
+            <option value="011">011</option>
+        </select>-<input type="text" name="tel2" id="tel2">-<input type="text" name="tel3" id="tel3"><br>
+
+        <label for="tel"><span class="fixwidth">성별</span></label>
+        <label for="rb1"><span class="fixwidth2">남자</span></label>
+        <input type="radio" name="gender" id="rb1" value="남자">
+        <label for="rb2"><span class="fixwidth2">여자</span></label>
+        <input type="radio" name="gender" id="rb2" value="여자"><br>
+        <input type="submit" value="가입하기" id="join" name="join" ><br>
+    </fieldset>
+
+</body>
+</html>
