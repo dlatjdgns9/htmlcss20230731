@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*전체 선택자*/
+        /* *{margin:0; padding: 0;} */
+
+        /* 태그 선택자 */
+        h1{background-color: red;}
+        p{background-color: yellow;}
+
+        /* 클래스 선택자 : 중복 적용 가능*/
+        .item{color: blue;}
+        .medium-font{font-weight: bold; font-size: 10pt;}
+        .medium-font{font-weight: bold; font-size: 20pt;}
+
+        /* 아이디 선택자 */
+        #id {background-color: black; color: white;}
+    </style>
+</head>
+<body>
+    <h1>기본 선택자(selector)</h1>
+    <ul>
+        <li class="item medium-font">전체</li>
+        <li class="item">태그</li>
+        <li id="id" class="item">아이디</li>
+        <li id="id" class="item">클래스</li>
+    </ul>
+
+</body>
+</html>
