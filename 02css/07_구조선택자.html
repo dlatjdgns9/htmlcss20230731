@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {list-style: none;}
+        li {
+            display: inline-block; width: 80px; height: 30px; 
+            border: 1px dashed black; line-height: 30px; 
+            text-align: center; background-color: blueviolet;
+            cursor: pointer;
+        }
+        a{text-decoration: none; color: black; }
+        a:hover{color: white;}
+        li:first-of-type{border-radius: 20px 0 0 20px;}
+        li:last-of-type{border-radius: 0 20px 20px 0;}
+        li:nth-of-type(2n+1){background-color: rgb(173, 21, 161);}
+        li:hover{background-color: rgb(0, 140, 255); color: white; font-weight: bold;}
+        </style>
+</head>
+<body>
+    <h1>구조 선택자</h1>
+    <p>동류의 연속적인 태그에 선별적으로 적용 가능</p>
+    <ul>
+        <li>Menu 1</li>
+        <li>Menu 2</li>
+        <li>Menu 3</li>
+        <li>Menu 4</li>
+        <li>Menu 5</li>
+        <li>Menu 6</li>
+        <li>Menu 7</li>
+        <li>Menu 8</li>
+        <li>Menu 9</li>
+        <li>Menu 10</li>
+    </ul>
+</body>
+</html>

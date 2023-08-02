@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #c1:checked ~ input[type = "button"] {visibility: hidden;}
+        #c2:checked ~ input[type = "button"] {visibility: visible;}
+
+        input[type="text"]:focus{background-color: pink;}
+        #cb:checked+#input{background-color: gray;}
+        --#input:enabled+#caption{color: blue;}
+        #input2:enabled+#caption2::after{content: "enabled"; color: blue;}
+        #input2:disabled+#caption2::after{content: "disabled"; color: red;}
+    </style>
+    <script>
+        window.onload = function () {
+            var vb2 = document.querySelector("#cb2")
+            cb2.onclick = function () {
+                cb2Check();
+            }
+            function cb2Check() {
+                var input2 = document.querySelector("#input2")
+                var cb2 = document.querySelector("#cb2")
+                if(cb2.checked){
+                    input2.value="";
+                    input2.disabled = true;
+                }else{
+                    input2.disabled = false;
+                }
+            }
+            cb2Check();
+        }
+    </script>
+</head>
+<body>
+    <h1>상태 선택자</h1>
+    <label for="">checked</label>
+    <input type="radio" name="choice" id="c1" checked>
+    <input type="radio" name="choice" id="c2">
+    <input type="button" value="확인">
+    <br>
+
+    <label for="">focus</label>
+    <input type="text" name="" id="">
+    <br>
+
+    <label id="caption" for="">체크될 때 css만으로 텍스트배경만 흐리게 (실제로는 색상만 어둡게 됨)</label>
+    <input type="checkbox" name="" id="cb" checked>
+    <input type="text" name="" id="input"><br>
+
+    <input type="checkbox" name="" id="cb2" checked>
+    <input type="text" name="" id="input2">
+    <label id="caption2" for="">체크될 때 자바스크립트로 text 사용여부 변경(실제로는 색상만 어둡게 됨)</label>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 자손 선택자(직계) */
+        body > div {background: blue;}
+
+        /* 후손 선택자 */
+        body div div {background: red;}
+
+        div div>h1{color: rgb(245, 192, 255);}
+    </style>
+</head>
+<body>
+    <h1>후손, 자손 선택자</h1>
+    <p>후손, 자손 선택자는 하위 레벨에 있는 태그를 선택할 때 사용</p>
+    <div>1
+        <h1>h1 1</h1>
+    </div>
+    <div>2
+        <div>4
+            <h1>h1 2</h1>
+        </div>
+        <div>5
+            <h1>h1 3</h1>
+        </div>
+    </div>
+</body>
+</html>
