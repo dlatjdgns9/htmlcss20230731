@@ -20,7 +20,7 @@
     <li>태그의 <span class="fixwidth">name</span>속성은 get/post로 전송시에 사용된다.</li>
     <li>button태그의 <span class="fixwidth">name</span>속성은 button, submit(default), reset으로 나뉜다.</li>
 
-    <form action="09_form_tag2.html" method="get" name="form">
+    <form action="10_join.html" method="get" name="form">
         <fieldset>
             <legend>로그인</legend>
             <label for="id"><span class="fixwidth">ID</span></label><input type="text" name="id" id="id" placeholder="ID"><br>
@@ -32,7 +32,8 @@
         </fieldset>
     </form>
 
-    <form action="09_form_tag2.html" id="frm2">
+    <form action="10_join.html" id="frm2">
+        <!-- form 태그의 method default는 get 따라서 method속성이 없으면 get방식으로 전송 -->
     <div class="examplestyle">
         checkbox는 name속성을 통해서 그룹핑한다. 전송시 복수 데이터 전송<br>
         <label for="cb1"><span class="fixwidth2">축구</span></label>
@@ -66,9 +67,7 @@
         <input type="datetime-local" name="calendar2" id="calendar2">
     </div>
 
-    <div class="examplestyle">
-        <textarea name="textarea" id="textarea" cols="30" rows="10"></textarea>
-    </div>
+    
 
     <div class="examplestyle">
         <button type="submit" id="submit2">전송</button>
@@ -76,6 +75,8 @@
         <button type="reset">취소</button>
     </div>
     </form>
+    <h3>form 태그 없이 쿼리를 사용하여 get방식을 적용 가능</h3>
+    <a href="10_join.html?id=admin&pass=1111">쿼리로 get방식의 전송</a>
     
     <script>
         document.querySelector("#submit2").onclick = function (e) {          
