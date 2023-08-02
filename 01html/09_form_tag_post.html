@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .fixwidth{display: inline-block; width: 70px;}
+        .examplestyle{margin: 30px 20px; padding: 10px 20px; background-color: antiquewhite;}
+    </style>
+</head>
+<body>
+    <a href="/01html/01_intro_li.html">Home</a>
+    <h1>입력 양식 태그 post</h1>
+    <hr>
+    <form action="09_form_tag_post.html" method="post" enctype="multipart/form-data">
+        <label class="fixwidth">제목<input type="text" name="subject" id="subject"></label>
+        <div class="examplestyle">
+            <textarea name="textarea" id="textarea" cols="30" rows="10"></textarea>
+        </div>
+        <p>file tag를 이용하여 전송할 경우 반드시 method는 post이고 enctype도 적용해야한다.</p>
+        File 추가 <input type="file" name="files" id="files">
+        <button>전송</button>
+
+
+        
+    </form>
+</body>
+</html>
