@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{padding: 0; margin: 0;}
+         body > div {border: 3px solid black;position: relative;}
+        .box{width: 100px; height: 100px; position: absolute;}
+        .box:nth-child(1) {background-color: red; top: 10px; left: 10px;}
+        .box:nth-child(2) {background-color: green; top: 50px; left: 50px;}
+        .box:nth-child(3) {background-color: blue; top: 90px; left: 90px;}
+    </style>
+</head>
+<body>
+    <h1>position 속성</h1>
+    <div>
+        <div class ="box"></div>
+        <div class ="box"></div>
+        <div class ="box"></div>
+    </div>
+    <ul>
+        <li>블록안에 블록일 경우 자손이 부모를 기준으로 위치를 가지려면 부모는 relative, 자식은 absolute이어야 한다.</li>
+        <li>display가 inline일 경우 좌우 조정은 안된다. 위아래만 된다.</li>
+        <li>하위의 태그가 inline : 가로는 text-align으로 조정하고, 높낮이는 line-height로 조정.</li>
+        <li>하위의 태그가 block : </li>
+        <ul>
+            <li>position의 기본값은 static, 상하 좌우 조정이 안된다.</li>
+            <li>position의 relative</li>
+            <li>position의 absolute 다큐먼트의 0,0 좌표를 기준, 단 부모태그가 relativ일 경우 부모태그를 기준으로 좌표가 설정</li>
+            <li>position의 fixed 스크린의 0,0좌표를 기준</li>
+        </ul>
+    </ul>
+    <p>법률은 특별한 규정이 없는 한 공포한 날로부터 20일을 경과함으로써 효력을 발생한다. 
+        헌법재판소 재판관의 임기는 6년으로 하며, 법률이 정하는 바에 의하여 연임할 수 있다. 
+        국회의원은 현행범인인 경우를 제외하고는 회기중 국회의 동의없이 체포 또는 구금되지 아니한다. 
+        재판의 심리와 판결은 공개한다. 다만, 심리는 국가의 안전보장 또는 안녕질서를 방해하거나 
+        선량한 풍속을 해할 염려가 있을 때에는 법원의 결정으로 공개하지 아니할 수 있다. 
+        지방자치단체는 주민의 복리에 관한 사무를 처리하고 재산을 관리하며, 
+        법령의 범위안에서 자치에 관한 규정을 제정할 수 있다. 
+        정당은 그 목적·조직과 활동이 민주적이어야 하며, 
+        국민의 정치적 의사형성에 참여하는데 필요한 조직을 가져야 한다.
+    </p>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>

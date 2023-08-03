@@ -1,0 +1,12 @@
+/* 
+외부에 스타일 시트 파일을 작성할 경우 본페이지의 소스코드에 html위주로 작성하여 간결해진다.
+ */
+
+ @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+ @import url(http://fonts.googleapis.com/css?family=Montserrat+Alternates);
+ 
+ .web-font-montserrat {
+   font-family: 'Montserrat Alternates', sans-serif;
+   font-size: 20pt;
+ }

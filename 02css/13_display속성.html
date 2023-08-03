@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {margin: 0; padding: 0;}
+        table {display: table; width: 150px; height: 150px; background-color: rgb(174, 0, 255);}
+        td {display: table-cell; vertical-align: middle;}
+        div {width: 50px; height: 50px; background-color: rgb(52, 236, 83); margin: 0 auto;}
+    </style>
+</head>
+<body>
+    <h1>display 속성</h1>
+    <p>display 속성 : none, inline, block, inline-block</p>
+    <span style="text-align: right; background-color: gray;">글자와 문단</span>span은 글자와 문단이 영역만큼만
+    <p style="text-align: right; background-color: lightgray;">
+        글자와 문단</p>p는 글자와 문단 block설정으로 좌우
+    <span style="display: inline-block; width: 500px; text-align: center; background: yellow;">
+    span에 display설정을 inline-block으로 변경시 width 설정 필요</span>
+
+    <p>display와 visibility의 차이점</p>
+    <input type="button" value="visibility: visible" style="visibility: visible;">
+    <input type="button" value="display: inline" style="display: inline;">
+    <input type="button" value="전송"><br>
+    <input type="button" value="visibility: visible" style="visibility: visible;">
+    <input type="button" value="display: none" style="display: none;">
+    <input type="button" value="전송"><br>
+    <input type="button" value="visibility: hidden" style="visibility: hidden;">
+    <input type="button" value="display: inline" style="display: inline;">
+    <input type="button" value="전송"><br>
+    <p>display의 table속성</p>
+    <table>
+        <tr>
+            <td><div></div></td>
+        </tr>
+    </table>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css" type="text/css">
+  <style>
+    span:nth-of-type(1){vertical-align: sub;font-size:small;}
+    span:nth-of-type(2){vertical-align: super;font-size:small;}
+    span:nth-of-type(3){font-size: small;}
+    span:nth-of-type(4){text-decoration:line-through; }
+    span:nth-of-type(5){text-decoration: underline;}
+    span:nth-of-type(6){font-style: italic;}
+    span:nth-of-type(7){font-weight: bold;}
+    span:nth-of-type(8){text-decoration: overline;}
+    span:nth-of-type(9){font-variant: small-caps;}
+    .p-font { font-family: '궁서체', sans-serif}
+    .web-font-myeongjo {font-family: 'Nanum Myeongjo', serif;font-size: 20pt;}
+    .web-font-gothic {font-family: 'Nanum Gothic', serif;font-size: 20pt;}
+  </style>
+  <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic|Nanum+Myeongjo&display=swap&subset=korean" rel="stylesheet">
+  
+</head>
+<body>
+  <h1 class="p-font">글자 속성</h1>
+  1. H<span>2</span>0 <br>
+  2. x<span>2</span>+x+1  <br>
+  3. small <span>small</span> <br>
+  4. del <span>del</span>  <br>
+  5. ins <span>ins</span>  <br>
+  6. italic <span>italic</span>  <br>
+  7. bold <span>bold</span> <br>
+  8. overline <span>overline</span> <br>
+  9. small-caps  <span>small-caps</span>  <br> 
+
+  <h4>웹 폰트는 다양한 글꼴 사용가능. 단점은 페이지 로딩 속도가 늦거나 안됨</h4>
+  <span class="web-font-gothic">1. 나눔 고딕을 사용한 글꼴</span><br>
+  <span class="web-font-myeongjo">2. 나눔 명조를 사용한 글꼴</span><br>
+  <span class="web-font-montserrat">3. Web Font Montserrat </span>
+
+</body>
+</html>
