@@ -5,22 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        /* 속성값과 완전 일치 */
+        /* 1. 속성값과 완전 일치 */
         /* input[type=text], input[type=password] {background: rgb(255, 187, 0);} */
 
-        /* 속성값과 완전 일치 또는 포함할 때 '-'는 제외, 공백은 허용 (2,4,6 라인)*/
+        /* 2. 속성값과 완전 일치 또는 포함할 때 '-'는 제외, 공백은 허용 (2,4,6 라인)*/
         /* input[data-role~="one"] {background-color: red;} */
 
-        /* 속성값과 완전 일치 또는 시작할 때 '-' 허용, 공백은 제외 (2,3 번라인) */
+        /* 3. 속성값과 완전 일치 또는 시작할 때 '-' 허용, 공백과 타글자 포함은 제외 (2,3 번라인) */
         /* input[data-role|="one"] {background: yellowgreen;} */
         
-        /* 속성값과 완전 일치 또는 접두어로 시작할 때 '-' 허용, 공백은 제외 (2 ~ 5 번라인) */
+        /* 4. 속성값과 완전 일치 또는 접두어로 시작할 때 (2 ~ 5 번라인) */
         /* input[data-role^="one"] {background: yellowgreen;} */
         
-        /* 속성값과 완전 일치 또는 접미어로 끝날 때 '-' 허용, 공백은 제외 (3 ~ 9 번라인) */
+        /* 5. 속성값과 완전 일치 또는 접미어로 끝날 때  (3 ~ 9 번라인) */
         /* input[data-role$="two"] {background: yellowgreen;} */
         
-        /* 속성값과 완전 일치 또는 포함될 때 (2 ~ 9 번라인) */
+        /* 6. 속성값과 완전 일치 또는 포함될 때 (2 ~ 9 번라인) */
         /* input[data-role*="one"] {background: yellowgreen;} */
     </style>
 </head>
