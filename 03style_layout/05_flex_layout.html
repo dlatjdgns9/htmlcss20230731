@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .wrapper>div {border: 1px dashed black;
+    /* flex 속성은 플렉스 아이템이 컨테이너가 차지하는 공간에 맞추기 위해 크기 조정 방법을 설정*/
+    /* flex-grow 남은 공간에 대한 비율, flex-shrink 각 요소 크기 축소,flex-basis 기본 크기*/
+    /* flex: 1 1 100px; */
+    /* flex-grow: 1; */
+    /* flex-shrink: 1; */
+    /* flex-basis: 100px; */
+    }
+    
+    /* 컨테이너에 대한 설정 */
+    .wrapper {
+      /* flex는 방향성을 가지고, content만큼 width를 차지,height는 컨테이너크기로 동일; */
+      display: flex;
+
+      /* 컨테이너가 한 줄에 담을 여유 공간이 없을 때 nowrap, wrap, wrap-reverse */
+      flex-wrap: wrap-reverse;
+      
+      /* 방향은 row, column, row-reverse, column-reverse */
+      flex-direction: row;
+
+      /* 메인축 방향 아이템 정렬 속성 */
+      /*flex-end,center,space-between,space-around,space-evenly; */
+      /* justify-content: flex-start; */
+    }
+
+    /* https://studiomeal.com/archives/197 */
+  </style>
+</head>
+
+<body>
+  <h1>Flex Layout</h1>
+  <div class="wrapper">
+    <div class="one">One<br><br><br><br><br></div>
+    <div class="two">Two</div>
+    <div class="three">Three</div>
+    <div class="four">Four</div>
+  </div>
+
+</body>
+
+</html>

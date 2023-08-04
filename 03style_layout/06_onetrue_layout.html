@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {padding: 0; margin: 0;}
+    body {overflow-y: scroll; background: rgb(226, 226, 226); width:800px; margin: 0 auto;}
+
+    #container {
+      width: 100%; min-height: 100vh; background: white;
+      box-shadow: 2px 0 2px #cfcfcf, -2px 0 2px #cfcfcf;
+    }
+
+    #middle { overflow: hidden; min-height: 60vh; width: 100%;}
+    #left { float: left; width: 30%; min-height: 60vh; background: red; }
+    #right { float: left; width: 70%; min-height: 60vh; background: blue; }
+
+    #top { background: green; height: 20vh;}
+    #bottom { background: purple; height: 20vh;}
+</style>
+</head>
+<body>
+  <div id="container">
+    <div id="top">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam elit elit, ornare non elementum ut, imperdiet nec felis. Proin leo felis, congue vitae facilisis id, ullamcorper vitae ipsum.</div>
+    <div id="middle">
+        <div id="left">Lorem ipsum dolor sit amet, 
+          <!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+          <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
+          consectetur adipiscing elit. Aliquam elit elit, ornare non elementum ut.</div>
+        <div id="right">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam elit elit, ornare non elementum ut, imperdiet nec felis. Proin leo felis, congue vitae facilisis id, ullamcorper vitae ipsum. Integer a risus sed libero imperdiet lacinia vel vel massa. Vestibulum tempus ullamcorper tellus vitae gravida. Donec cursus, enim at porta auctor, purus sapien luctus erat, vitae placerat ante nibh eget lectus. Integer a leo sit amet neque suscipit commodo sed et mauris. Nullam a turpis nunc. Ut metus risus, scelerisque ac dignissim non, faucibus ac metus.</div>
+    </div>
+    <div id="bottom">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam elit elit, ornare non elementum ut, imperdiet nec felis. Proin leo felis, congue vitae facilisis id, ullamcorper vitae ipsum.</div>
+  </div>
+</body>
+</html>
