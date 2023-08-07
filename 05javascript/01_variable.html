@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span#result{
+            border: 1px dashed black; display: inline-block; width: 200px; height: 100px;
+            border-radius: 10px; font-size: 50px; text-align: center; line-height: 100px;
+        }
+    </style>
+    <script>
+          window.onload = function () {
+            // 변수 선언시 초기화 될 때 변수의 타입도 지정된다. 타입선언 안해도 초기화 할 때 자동으로 선언됨.
+            // undefined, Boolean, Number, String, Function, Object
+            // 변수의 명명규칙 변수명은 영문자(대소문자) 와 숫자, '-', '$' 가능
+            // 숫자로 시작 안됨. 
+            // let sevenUp;  //undefined
+            // let sevenUp = 10 //number
+            // let sevenUp = true //boolean
+            // let sevenUp = 'hello javascript' //string
+            let sevenUp = function () { console.log("function")} //function
+
+            // 1. alert로 띄우는 방법
+            alert(sevenUp)
+
+            // 2. console.log로 출력하는 방법
+            console.log(sevenUp)
+
+            // 3. document에 출력 => 이떄 기존 document의 태그는 무시된다.
+            // document.write(sevenUp)
+            
+            // 4. tag에 출력
+            document.querySelector('#result').textContent = typeof(sevenUp)
+
+          }
+    </script>
+</head>
+<body>
+    <span id="result"></span>
+</body>
+</html>
