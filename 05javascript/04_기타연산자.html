@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // number : 정수와 실수를 포함
+        // 실수일 경우 부동 소수점 정밀도가 IEEE 754의 부동소수점보다  더 정확한 정밀도를 가진다.
+        // Doubles가 Floats보다 더 많은 소수 자릿수를 표현, 소수점 표현에는 Doubles가 더 정확.
+
+        var myInt = 5;
+        var myFloat = 6.667
+        console.log(myInt + "/" + typeof (myInt));
+        console.log(myFloat + "/" + typeof (myFloat));
+
+
+
+
+        const lotsOfDecimal = 1.766584958675746364
+        console.log(lotsOfDecimal);
+
+        const twoDecimalPlaces = lotsOfDecimal.toFixed(2)
+        console.log(twoDecimalPlaces);
+
+
+        let myNumber = "74"
+        myNumber += 3
+        console.log(myNumber + "/" + typeof (myNumber));
+
+        myNumber = "74"
+        myNumber = Number(myNumber) + 3;
+        console.log(myNumber + "/" + typeof (myNumber));
+
+
+        console.log("=== 산술연산자의 종류 ===");
+        console.log("+, -, *, /, %, **");
+        const num1 = 10;
+        const num2 = 50;
+        console.log(5 ** 2);  //5*5해서 25를 반환 (거듭제곱)
+        console.log(5 + 10 * 3);
+        console.log(num2 % 9 * num1);
+        console.log(num1 + num2 / (8 * 2));
+        console.log((num1 + num2) / (8 * 2));
+
+        let n1 = 10, n2 = 20
+        console.log("=== 단항연산자 ===");
+        console.log("++, --, delete, typeof, void, in");
+        const myObj = {h: 4}
+        console.log(void (delete myObj.h)); //void는 값을 반환하지 못하도록 막음. 
+        console.log(myObj.h);
+        var trees = ['redwood', 'bay', 'cedar', 'oak', 'maple']
+        console.log("0 in trees : " + (0 in trees));
+        console.log("3 in trees : " + (3 in trees));
+        console.log("'bay' in trees : " + ('bay' in trees)); // index 자체를 지정해야 한다.
+        console.log("'length' in trees : " + ('length' in trees)); //배열의 속성이라서 true
+        
+
+        console.log("=== 대입연산자 ===");
+        console.log("+=, -=, *=, /=, %=, ++=, <<=, >>=, ||=, ??=");
+        console.log(n1 += 100);
+        console.log(n1 %= 3);
+        const x = 1
+        x ??= 2 // ?? x가 nullish(null or undefined)를 따져서 아니면 1 출력 null이면 2출력
+        console.log("x: " + x);
+
+        console.log("=== 시프트연산자 ===");
+        console.log(">>, <<");
+        console.log(n1 = n1 << 2);
+
+        console.log("=== 비트연산자 ===");
+        console.log("|, &, ^, ~");
+        console.log("n1 = 2 | 1 : " + (n1 = 2 | 1));
+        console.log("n1 = 2 & 1 : " + (n1 = 2 & 1));
+        console.log("n1 = 2 ^ 1 : " + (n1 = 2 ^ 1));
+        console.log("n1 = ~2 : " + (n1 = ~2)); //2의 보수를 구함 (보수연산자)
+
+        console.log("=== 비교연산자 ===");
+        console.log("==, !=, ===, !==, >, <, >=, <=");
+        console.log("'3' == 3 : " + ("3" == 3));
+        console.log('"3" == 3 : ' + ("3" == 3));
+        console.log(`"3" == 3 : ` + ("3" == 3));
+        console.log('"3" === 3 : ' + ("3" === 3)); // ===은 값도 같고 타입도 같아야 true
+        console.log('"3" !== 3 : ' + ("3" !== 3)); // ===은 값은 같고 타입은 다른경우 true
+
+        console.log("=== 쉼표연산자 ===");
+        console.log(",");
+        var arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+        var xrr = [arr, arr, arr, arr, arr]
+        for (let i = 0, j = 9; i <= j; i++, j--) {  //let i = 0, j = 9에서 ,가 쉼표 연산자
+            console.log(`xrr[${i}][${j}] = ${xrr[i][j]}`);
+        }
+        let tmp = (2, 3) //쉼표연산자가 ()안에 잇을 경우 왼쪽에서 오른쪽 순서로 평가하고, 마지막 연산자의 값을 반환
+        console.log(tmp); //3 출력
+        console.log((tmp++, tmp)); // 4출력
+
+        var a, b, c
+        a = b = 3, c = 4
+        console.log(a);
+
+        var i, j, ko;
+        i = (j = 5, k = 6)
+        console.log(i);
+
+        console.log("=== 조건(삼항) 연산자 ===");
+        var age = prompt("나이를 입력하세요")
+        var status = age >= 18 ? '성인' : '미성년자'
+        console.log(status);
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

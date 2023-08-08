@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="03_script.js"></script>
+    <script>
+        greeting("ISH")
+        num1 = 10
+        num2 = 20
+        num3 = 0
+
+        num1 = (1>2) //false
+        num2 = ([]) //true
+        num3 = -100 //true
+        
+
+        num1 = document.all //false
+        num2 = document //true
+        num3 = -1.2 //true
+        // 위의 변수에 특정 값이 할당이 되었지만 Boolean context을 만날 때 boolean으로 변환
+
+
+        // 자바스크립트에서 truthy value
+        // 1) 0을 제외한 정수와 실수, Infinity, -Infinity
+        // 2) 빈 문자열을 제외한 문자열
+        // 3) new Date()와 같은 참조형 객체들
+        // 4) {} 빈 객체, []
+        // 5) function(){}
+        // 6) true
+        // 7) DOM API에 정의된 객체들(window, document등등)과 함수들
+        
+        // 자바스크립트에서 falsy value
+        // 1) undefined, null
+        // 2) NaN(Not A Number)
+        // 3) 0(숫자 리터럴), -0
+        // 4) ""(빈 문자열) 빈 문자열은 false로 인식하지만, 빈 객체는 true로 인식한다.
+        // 5) []는 비교연산자를 만나면 ''또는 ""로 변환되어 빈 문자열로 인식해서 false.
+        // 6) false
+        // 7) document.all, alert()는 값을 반환하지 않으므로 undefined를 반환
+
+
+        // 첫번째 truthy를 찾는 OR 연산자 '||', 전부다 false일 경우는 수식에서 마지막 false인 값을 출력
+        console.log("num1 || num2 :" + (num1 || num2));
+        console.log("num2 || num3 :" + (num2 || num3));
+        console.log("num3 || num2 :" + (num3 || num2));
+        console.log("num3 || num2 || num1 :" + (num3 || num2 || num1));
+        console.log("num2 || num3 || num1 :" + (num3 || num2 || num1));
+        console.log("num1 || num3 || num2 :" + (num1 || num3 || num2));
+        console.log("0 || null || undefined :" + (0 || null || undefined));
+        
+        // 첫번째 falsy를 찾는 AND연산자 '&&', 전부다 true일 경우는 수식에서 마지막 true인 값을 출력
+        console.log("num1 && num2 :" + (num1 && num2));
+        console.log("num2 && num3 :" + (num2 && num3));
+        console.log("num3 && num2 :" + (num3 && num2));
+        console.log("num3 && num2 && num1 :" + (num3 && num2 && num1));
+        console.log("num2 && num3 && num1 :" + (num3 && num2 && num1));
+        console.log("num1 && num3 && num2 :" + (num1 && num3 && num2));
+        // &&의 우선순위가 ||보다 높다.
+
+
+        // 형변환 문제
+        console.log("[] == 0 :" + ([] == 0)); //false==false => true;
+        console.log("[] == true :" + ([] == true)); //false==true => false
+        if ([]) {console.log('이게 되나요');}  
+        // []가 비교연산자를 만나면 ''로 변환되어 false이지만, 그 자체는 truthy value
+
+
+        console.log("1=='1' :" + (1=='1')); //true
+        console.log("1=='' :" + (1==''));  //false
+        console.log("0=='' :" + (0==''));  //true
+        console.log("0=='0' :" + (0=='0')); //true
+        console.log(typeof('0'.toString));
+        // 참조값이 ==연산에 사용될 경우에는 참조값이 우선 toString() 연산을 통해 원시값으로 형변환
+
+
+
+        
+        console.log("5+'2' :" + (5+'2')); //문자열과 숫자의 +연산은 문자열로 형변환
+        console.log("5=='2' :" + (5=='2')); //문자열과 숫자의 +연산을 제외한 모든 수학 연산에서 문자열이 숫자로 형변환
+        //문자열과 숫자의 ==연산은 문자열이 숫자로 형변환된다.
+        //참조값은 연산을 위해 원시값으로 변환되어야 하면 그 값은 toString()의 결과이다.
+        //따라서 []==0의 값은 ''==0로 변경되고  또 0==0로 변경되어 true를 반환한다.
+
+        // 1) Exercise
+        let x= 1;
+        // (x>0) && alert('0보다 크다!!') //아래 문장과 같은 내용으로 줄여 쓰는 용도로 사용.
+        if(x>0) alert('0보다 크다!!')
+
+        // 2) Exercise
+        // alert(!"Hello")
+        // alert(!!null)
+
+
+        // 3) Exercise
+        console.log("null || 2 || undefined :" + (null || 2 || undefined));
+        console.log("alert(1) || 2 || alert(3) : " + (alert(1) || 2 || alert(3)));
+        console.log("1 && null && 2 :" + (1 && null && 2));
+        console.log("alert(1) && alert(2) : " + (alert (1) && alert(2)));
+
+        // 4) Exercise
+        console.log("null || 2 && 3 || 4 :" + null || 2 && 3 || 4);
+
+        // 5) Exercise
+        if (-1 || 0) {console.log('first');}
+        if (-1 && 0) {console.log('second');}
+        if (null || -1 && 1) {console.log('third');}
+
+
+
+        // number : 정수와 실수를 포함
+        // 실수일 경우 부동 소수점 정밀도가 IEEE754의 부동 소수점보다 더 정확한 정밀도를 가짐.
+
+
+
+
+
+    </script>
+</head>
+
+<body>
+    <h1>논리 연산자</h1>
+    <h3>|| (OR)</h3>
+    <h3>&& (AND)</h3>
+    <h3>&&의 우선순위가 ||보다 높다.</h3>
+</body>
+</html>

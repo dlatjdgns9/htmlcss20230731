@@ -13,14 +13,19 @@
     <script>
           window.onload = function () {
             // 변수 선언시 초기화 될 때 변수의 타입도 지정된다. 타입선언 안해도 초기화 할 때 자동으로 선언됨.
-            // undefined, Boolean, Number, String, Function, Object
-            // 변수의 명명규칙 변수명은 영문자(대소문자) 와 숫자, '-', '$' 가능
+            // 변수는 할당(Assignment) 과정을 가진다. (1.선언, 2.초기화)
+            // undefined 변수를 선언만 했을 경우, 초기화가 되지 않을 경우의 값
+            // Boolean, Number, String, Function, Object 5가지
+            // 변수의 명명규칙 변수명은 영문자(대소문자) 와 숫자, '_', '$' 가능
             // 숫자로 시작 안됨. 
             // let sevenUp;  //undefined
             // let sevenUp = 10 //number
+            let sevenUp = Math.pow(10, Math.pow(10,10)); //number값은 너무 커서 Infinity로 출력
             // let sevenUp = true //boolean
             // let sevenUp = 'hello javascript' //string
-            let sevenUp = function () { console.log("function")} //function
+            // let sevenUp = function () { console.log("function")} //function
+            // let sevenUp = new Date() //object
+            // let sevenUp = {name: "Spot", breed: "Dalmatian"}; //배열도 object
 
             // 1. alert로 띄우는 방법
             alert(sevenUp)
