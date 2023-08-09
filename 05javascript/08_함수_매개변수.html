@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function myFunc(theObject) {
+            theObject.make = "KIA"
+        }
+
+        const myCar = {
+            make: "Hyundai", model: "EV9", year: 2023
+        }
+
+        console.log("myFunc()호출 전 " + myCar.make);
+        myFunc(myCar); //객체를 매개변수로 전달할 경우 객체의 속성을 변경할 경우 외부에서도 변경 사항을 확인 가능하다
+        console.log("myFunc()호출 후 " + myCar.make);
+
+        // 배열도 매개변수로 전달 시 원소를 변경가능함.    
+        const arr = [45];
+
+        function changeArr(theArr) {
+            theArr[0] = 30;
+        }
+        console.log("함수 호출 전 >> " + arr[0]);
+        changeArr(arr);
+        console.log("함수 호출 후 >> " + arr[0]);
+
+        const factorial = function (n) {
+            return n < 2 ? 1 : n * factorial(n - 1)
+        }
+
+        function applyFuncArray(fn, arr) {
+            const result = new Array(arr.length);
+            for (let i = 0; i < arr.length; i++) {
+                result[i] = fn(arr[i]);
+            }
+            return result;
+        }
+
+        const fn = function (n) {
+            return n * n;
+        }
+
+        const number = [0, 1, 2, 3];
+        const result = applyFuncArray(factorial, number);
+        console.log(result);
+    </script>
+</head>
+<body></body>
+</html>

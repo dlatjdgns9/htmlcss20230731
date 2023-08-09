@@ -1,0 +1,23 @@
+<script>
+    // 아래의 변수는 global scope에 위치 -> hoisting
+    const num1 = 20;
+    const num2 = 3;
+    const name = "KJK";
+    
+    // 아래의 변수는 global scope에 위치 -> hoisting
+    function multiply(n1, n2) {
+        return n1 * n2;
+    }
+    
+    console.log(multiply(num1, num2))
+
+    function getScore() {
+        const n1 = 1;
+        const n2 = 2;
+        function add() {
+            return `${name} scored ${n1 + n2}`;
+        }
+        return add();
+    }
+    console.log(getScore());
+</script>

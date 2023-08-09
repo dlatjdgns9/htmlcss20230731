@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // hoisting :: interpreter가 변수와 함수의 메모리 공간을 선언 전에 미리 할당함
+        console.log(squre(2)); // 함수 선언(선언적 함수)은 hoisting 적용
+        try {
+            console.log(max(1, 2)); // 에러 발생 (익명 함수는 hoisting이 안됨)
+        } catch (error) {
+            console.log(error);
+        }
+        // 익명 함수(= 함수 표현식)로 선언된 함수는 hoisting이 적용 안됨 = undefined
+        var max = function (n1, n2) { 
+            return n1 >= n2 ? n1 : n2;
+        }
+
+        // 함수 선언(선언적 함수)은 hoisting 적용
+        function squre(num) {
+            return num * num;
+        }
+
+        function add(n1, n2) {
+            var tot = n1 + n2;
+            return tot
+        } // console.log찍으면 안나옴
+
+        var outer = function () {
+            var a = 1;
+            var inner = function () {
+                return ++a;
+
+            }
+            return inner;
+        }
+        var outer2 = outer(); 
+        // outer2가 실행될 때마다 a의 값이 참조됨 => closure 현상
+        console.log("outer2() : " + outer2()); // 2
+        console.log("outer2() : " + outer2()); // 3
+        console.log("outer.a: " + outer.a) //undefined
+
+        //tot console불가 => 더 이상 참조 안함
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
