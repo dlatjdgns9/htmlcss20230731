@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    var input = prompt("1~12월 중에 계절을 알고 싶은 월을 입력하세요")
+    var wol = "";
+    try {
+      var month = checkMonth(input);
+      switch (month) {
+        case 3: case 4: case 5:
+          wol = "봄"
+          break;
+        case 6: case 7: case 8:
+          wol = "여름"
+          break;
+        case 9: case 10: case 11:
+          wol = "가을"
+          break;
+
+        default:
+          wol = "겨울"
+          break;
+      }
+      console.log(wol + "입니다.");
+    } catch (error) {
+      if (error == "NotNumberRange") console.log("1~12입니다.");
+      else if (error == "NotNumberFormat") console.log("숫자 입력바랍니다.");
+    } finally {
+      console.log("잘 해보자!!");
+    }
+
+    function checkMonth(input) {
+      if (isNaN(input)) {
+        // console.log("숫자가 아니다.");
+        throw "NotNumberFormat";
+      } else {
+        // console.log('숫자가 맞다');
+        month = parseInt(input)
+        if (!(month > 0 && month < 13)) {
+          // console.log("1~12사이의 숫자를 입력해주세요");
+          throw "NotNumberRange"
+        }
+      }
+    }
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+         let arr = [3,5,7,9]
+        // for in 문은 속성 이름을 통해서 반복
+        for (const key in arr) { //여기서 key는 인덱스를 의미함.
+            if (Object.hasOwnProperty.call(arr, key)) {
+                const element = arr[key];
+                // console.log(`key: ${key}, elemet: ${car[key]}`);
+            }
+            // console.log(`key: ${key}, elemet: ${car[key]}`);
+        }
+
+        // for of 문은 값을 통해서 반복
+        // 반복 가능한 객체 : Array, Map, Set, String, TypeArray, arguments 객체
+        for(const it of arr){
+            console.log(it);
+        }
+
+
+
+        var car ={ make: 'KIA', model: 'Soul'}
+        console.log("속성들: "+ Object.values(car));
+        console.log("값들: " + Object.values(car));
+        console.log(car.make);
+
+        for (const key in car) {
+            // Object.hashOwnProperty.call 객체가 특정 프로퍼티를 가지고 있는지를 불리안으로 변환
+            // if (Object.hasOwnProperty.call(car, key)) {
+            //     const element = car[key];
+            //     console.log(`key: ${key}, elemet: ${element}`);
+                
+            // }
+            console.log(`key: ${key}, elemet: ${car[key]}`);
+        }
+
+
+        for (const it of Object.keys(car)) {
+            // console.log(it); //에러발생 => iterable(반복되는 열거가능한 속성이 있는 객체) 아님
+        }
+        
+        for (const it of Object.values(car)) {
+            console.log(it);
+        }
+
+        // for in과 for of의 차이점
+        // for in 객체의 모든 열거 가능한 속성에 대해 반복
+        // for of [Symbol.iterator] 속성을 가지는 컬렉션 전용(이터러블 배열)
+        var iterable = [3,5,7]
+        iterable.foo = "hello"
+
+        for (const key in iterable) {
+            console.log(key);
+        }
+        
+        for (const value of iterable) {
+            console.log(value);
+        }
+
+        for (let i = 0; i < iterable.length; i++) {
+            const element = iterable[i];
+            console.log(element);
+        }
+
+        var result = Object.keys(iterable)
+        for(const key in result){
+            console.log(`index: ${key} / key: ${result[key]} / value: ${iterable[result[key]]}`);
+        }
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

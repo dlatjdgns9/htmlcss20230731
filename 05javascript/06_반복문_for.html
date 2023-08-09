@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            
+            for (let i = 10; i > 0; i--) {
+                setInterval(printCountDown(i), 1000)
+
+            }    
+            function printCountDown(i) {
+                document.querySelector("div").textContent = i;
+                console.log(i);
+            }
+        }
+        
+        function sleep(sec) {
+            let start = Date.now()
+            let now = start
+            while(now-start < sec){
+                now = Date.now()
+            }
+        }
+    </script>
+    <style>
+        div{
+            font-size: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>for Loop</h1>
+    <div></div>
+</body>
+</html>
