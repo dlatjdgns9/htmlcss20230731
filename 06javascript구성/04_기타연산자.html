@@ -104,7 +104,7 @@
         i = (j = 5, k = 6)
         console.log(i);
 
-        console.log("=== 조건(삼항) 연산자 ===");
+        console.log("=== 조건(삼항) 연산자 ==="); 
         var age = prompt("나이를 입력하세요")
         var status = age >= 18 ? '성인' : '미성년자'
         console.log(status);
@@ -112,6 +112,36 @@
 
 
 
+        console.log("=== Spread Operator ===");
+        var arr1 = [1,2,3,4,5]
+        var arr2 = [...arr1, 6, 7, 8, 9]
+      
+        console.log(arr2.concat(arr1));
+        console.log([...arr1, ...arr2]);
+
+        var str1 = "Hello"
+        var str2 = [...str1]
+        console.log(str2);
+
+        var objs1 = [{name: '철수', age:10,
+
+            toString: function () {
+                return this.name + ":" + this.age
+            }    
+            // .toString: () => {return this.name + ":" + this.age}
+            //객체안에서 toString을 정의할 경우 화살표 함수 사용 안됨. this가 document를 가리키기 때문
+            // 이럴 경우 toString을 익명함수로 선언해야 함.
+        }]
+        var objs2 = [...objs1]
+        for (const it of objs2) {
+            console.log(it);
+        }
+        for (const key in objs2) {
+            if (Object.hasOwnProperty.call(objs2, key)) {
+                const element = objs2[key];
+                console.log(key + ":" + element);
+            }
+        }
 
     </script>
 </head>
