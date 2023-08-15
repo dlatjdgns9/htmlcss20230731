@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function myFunc(theObject) {
+            theObject.make = "KIA"
+        }
+
+        const myCar = {
+            make: "Hyundai", model: "EV9", year: 2023
+        }
+
+        console.log("myFunc()호출 전 " + myCar.make);
+        myFunc(myCar); //객체를 매개변수로 전달할 경우 객체의 속성을 변경할 경우 외부에서도 변경 사항을 확인 가능하다
+        console.log("myFunc()호출 후 " + myCar.make);
+
+        // 배열도 매개변수로 전달 시 원소를 변경가능함.    
+        const arr = [45];
+
+        function changeArr(theArr) {
+            theArr[0] = 30;
+        }
+        console.log("함수 호출 전 >> " + arr[0]);
+        changeArr(arr);
+        console.log("함수 호출 후 >> " + arr[0]);
+
+        const factorial1 = function (n) {
+            return n < 2 ? 1 : n * factorial1(n - 1) // recursive call (재귀적 호출) 함수 이름이 잇을 경우
+        }
+        console.log(factorial1(5));
+
+
+        function factorial2() {
+            return function (n) {
+                if (n <= 1) {
+                    return 1;
+                }
+                return n*arguments.callee(n-1) //  recursive callee는 익명함수가 자기자신을 참조하려고 할 때
+            }
+        }
+        console.log(factorial2()(5));
+
+
+        function applyFuncArray(fn, arr) {
+            const result = new Array(arr.length);
+            for (let i = 0; i < arr.length; i++) {
+                result[i] = fn(arr[i]);
+            }
+            return result;
+        }
+
+        const fn = function (n) {
+            return n * n;
+        }
+
+        const number = [0, 1, 2, 3];
+        const result = applyFuncArray(factorial1, number);
+        console.log(result);
+
+
+        function myConcat(separator) {
+            let result = ""
+            for (let i = 1; i < arguments.length; i++) {
+                result += arguments[i] + separator
+            }
+            return result
+        }
+        //매개변수가 복수개일 때 spread Operator 사용 가능.
+        // spread연산자를 매개변수로 쓸 경우 무조건 맨뒤에 위치.
+        console.log(myConcat("-", "어린왕자", "보아", "먹히다")); 
+        
+        function multiply(multiplier, ...theArgs) {
+            // return theArgs.map(function (x){
+            //     return multiplier * x
+            // })
+            return theArgs.map(x => multiplier * x)
+        }
+        console.log(multiply(2,1,2,3,4));
+
+        function add(...rest) {
+            let sum = 0
+            for (const it of rest) {
+                sum += it
+            }
+            return sum
+        }
+        console.log(add(1,2,3));
+        console.log(add(1,2,3,4,5,6,7,8,9));
+
+
+        var n5 = [5,2,4,3,1]
+        console.log(Math.min(...n5));
+        var students = [{name: "Hulk", age: 10}, {name: "Thor", age: 1000}, {name: "Tanos", age: 800}]
+        console.log("min age : " + Math.min(...students.map(item => item.age)));
+
+        var currentObj = {name: "Spidy", species: 'mutant'}
+        currentObj = {...currentObj, name: "Wolverine", age: 10}
+        console.log(currentObj);
+
+        var a,b,others;
+        [a,b] = [10,20];
+        [a,b, ...others] = [10, 20, 30, 40, 50];
+        console.log(others);
+    </script>
+</head>
+<body></body>
+</html>

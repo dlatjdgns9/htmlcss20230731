@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 화살표 함수의 매개변수 갯수에 따라서 
+    // 없으면 반드시 () => , 한개면 매개변수하나만 적용가능 arg =>, 복수면 (arg1, arg2) =>
+    // return 있을 때 중괄호 생략시 return 생략, 중괄호 사용하면 return 생략 불가
+    // return 없을 때 명령이 하나면 중괄호 생략 가능, 명령이 복수면 중괄호 생략 불가.
+    var argMany = function (n1, n2) {
+      return n1 + n2;
+    }
+    argMany = (n1, n2) => {return n1 + n2};
+    console.log(argMany(1, 2));
+
+    var argNo = function () {
+      return argNo(1, 2);
+    }
+    argNo = () => argMany(1, 2);
+    console.log(argNo());
+
+    var argOne = function (num) {
+      return num * num;
+    }
+    argOne = num => num * num;
+    console.log(argOne(2));
+
+    var arr = ["yellow", 'red', 'blue', "green", "orange", 'mango'];
+    var getStringLength = arr.map(function (str) {
+      return str.length;
+    });
+    getStringLength = arr.map(str => str.length)
+    console.log(getStringLength);
+
+    //객체안에서 익명함수와 화살표 함수에서 this 사용시 주의
+    var objs1 = [
+      {
+        name: '철수'
+        ,age: 10
+        ,toString: function () {
+          return this.name + ":" + this.age
+        }
+        //,toString: () => {return this.name + ":" + this.age}
+        //객체안에서 화살표 함수 사용시 주의=>this가 전역객체.
+        //이럴 경우는 toString을 익명함수로 선언해야 this가 객체 자신을 가리킴. 
+      }
+    ];
+
+    //생성자 함수안에서 익명함수와 화살표 함수에서 this 사용시 주의
+    function Person() {
+      this.age = 30; // 화살표함수에서 this 사용가능, 이때 this는 Person
+      this.getAge = () => {
+        return this.age; 
+      };
+      setInterval(function growUp() {
+        this.age++; // this는 전역객체를 가리킴 전역객체의 age가 undefined.
+      },1000);
+    }
+    function Person() {
+      var self = this; //Person 생성자의 자신(this)를 self에 할당.
+      self.age = 30; 
+      self.getAge = () => {
+        return this.age; 
+      };
+      setInterval(function growUp() {
+        self.age++; // self는 Person 생성자를 가리킴.
+      },1000);
+    }
+
+    var p1 = new Person();
+    setInterval(() => {
+      console.log(p1.getAge());
+    }, 2000);
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

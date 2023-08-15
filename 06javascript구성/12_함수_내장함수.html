@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 문자열로 부터 eval()을 사용할 경우 해커가 위험한 코드를 삽입할 수 있다.
+    // 주의!! 사용하지 말 것
+    console.log(eval('2+2'));
+    console.log(eval(new String('2+2')));
+    console.log(eval('2+2') === eval('4'));
+    console.log(eval('2+2') === eval(new String('2+2')));
+
+    console.log(isFinite(100)); //유한한 값이면 true
+    var result = [1,2,3,'a',4,5].map(function (item) {
+      return isNaN(item)?'숫자가 아님':item;
+    });
+    console.log(result);
+
+    console.log(parseInt("3.14"));
+    console.log(parseFloat("3.14"));
+    
+    console.log(encodeURI('?x=한글'));  //결과 :: ?x=%ED%95%9C%EA%B8%80
+    console.log(decodeURI('?x=%ED%95%9C%EA%B8%80'));  //결과 :: ?x=한글
+    
+    console.log(encodeURIComponent('?x=한글')); //결과 :: %3Fx%3D%ED%95%9C%EA%B8%80
+    console.log(decodeURIComponent('%3Fx%3D%ED%95%9C%EA%B8%80')); //결과 :: ?x=한글
+    
+    console.log('decodeURI("?x=test") : ' + decodeURI("?x=test")); //?x=test 을 인코딩
+    console.log('decodeURIComponent("%3Fx%3Dtest") : ' + decodeURIComponent("%3Fx%3Dtest")); //%3Fx%3Dtest 을 디코딩
+    console.log(decodeURI("?x=test") == decodeURI(decodeURIComponent("%3Fx%3Dtest")));
+  </script>
+</head>
+<body>
+  <h1>내장 함수</h1>
+</body>
+</html>

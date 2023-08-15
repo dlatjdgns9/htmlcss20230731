@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    //정규 표현식
+
+    //메서드 종류 
+    // exec()  문자열에서 일치하는 부분을 탐색, 일치하는것은 배열로 리턴, 없으면 null을 반환
+    // test()  문자열 있으면 true 없으면 false
+    // match() 모든 일치를 담은 배열을 반환, 없으면 null 반환
+    // mathchAll() 모든 일치를 담은 배열을 반환
+    // search() 문자열에서 일치하는 부분의 인덱스 반환, 없으면 -1반환
+    // replace() 문자열에서 일치하는 부분은 탐색하고, 대체 문자열로 변경
+    // split() 문자열을 정규표현식을 통해 부분 문자열의 배열로 나눔
+
+    //flag 종류
+    // d 부분문자열 일치에 대한 인덱스 생성
+    // g 전역탐색
+    // i 대소문자를 구분하지 않음
+    // m 여러줄에 겹쳐 탐색
+    // s 개행문자가 .과 일치함
+    // u "unicode", 패턴을 유니코드 코드 포인트의 시퀀스로 간주함.
+    // y "접착" 탐색, 대상 문자열의 현재 위치에서 탐색을 시작
+
+    // Assertions 종류 :: 메타 문자 사용  . ^ $ * + {} [] \ | () 를 이용해서 문자를 설명하기 위한 코드.
+    // [] []사이의 문자들과 매치   :: [abc] a, b, c 중 한개의 문자와 매치 "a"(O), "before"(O), "dude"(X)
+    // -  두 문자 사이의 범위 a-z  :: [a-zA-Z] 알파벳 모두 매치
+    // ^  입력의 시작과 일치  /^A/ :: "an A"(불일치), "An A"(일치), [^0-9]:숫자가 아닌 문자만, []안에서는 반대 의미
+    // $  입력의 끝과 일치    /t$/ :: "eater"(불일치), "eat"(일치)
+    // \d 숫자와 매치 [0-9]와 같은 표현 
+    // \D 숫자가 아닌 것과 매치 [^0-9]와 같은 표현 
+    // \s whitespace(blank string)문자와 매치, [\t\n\r\f\v]와 동일한 표현 (f:formfeed, v:vertical tab), 
+    // \S whitespace(blank string)문자와 매치하지 않을 때, [^\t\n\r\f\v]와 동일한 표현
+    // \w 문자+숫자로 매치될 때 :: [a-zA-Z0-9_]와 동일한 표현식
+    // \W 문자+숫자가 아닌 문자와 매치될 때 :: [^a-zA-Z0-9_]와 동일한 표현식
+    // .  모든 문자 :: a.b 는 "a + 모든 문자 + b"와 동일. "aab"(O), "a0b"(O), "abc"(X)=>a와 b사이에 문자가 부존재.
+    //    주의 a[.]b 는 "a.b"(O), "a0b"(X) []사이에 어떤 메타문자가 들어와도 그냥 문자로 인식
+    // *  반복         :: ca*t => c + a(0번 이상 반복) + t. "ct"(O), "cat"(O), "caaaaat"(O)
+    // +  반복         :: ca+t => c + a(1번 이상 반복) + t. "ct"(X), "cat"(O), "caaaaat"(O)
+    // {m} 반복        :: ca{2}t => c + a(반드시 숫자만큼 반복) + t. "ct"(X), "cat"(X), "caat"(O)
+    // {m,n} 반복      :: ca{2, 5}t => c + a(반드시 2~5회 반복) + t. "ct"(X), "cat"(X), "caat"(O)
+    // {m,}, {,n} 반복 :: ca{2,},{,5}t => c + a(2회 이상 반복, 5회 이하 반복) + t. "ct"(X), "cat"(X), "caaaat"(O)
+    // ?  있어도 되고 없어도 된다. :: "ab?c" => "a + b(있어도되고없어도된다) + c"
+    // \b 단어 공백사이와 일치    /\bm :: "moon" "m"과 일치. m으로 시작하는 단어의 구분
+    // \b 단어 공백사이와 일치    /oo\b :: "moon"의 "oo"와 불일치. 단어사이에 껴 있음.
+    // \b 단어 공백사이와 일치    /oon\b :: "moon"의 "oon"과 일치. 문자열의 끝이므로 단어 뒤에 문자가 뒤따르지 않음.
+    // 특수문자 표현 :: \를 표현할 때 \\, (그외 \?, \',\")
+
+    //패턴을 적용하는 방법
+    // const re = /pattern/flags
+    // const re = new RegExp("pattern", "flags")
+    var regexp = /[A-E]/gi; //g는 A-E까지의 모든 문자와 i는 A-E까지의 대소문자
+    var regexp = new RegExp("[A-E]", "gi");
+    var str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+    var result = str.match(regexp);
+    console.log(result);
+    result = str.match();
+    console.log(result);
+
+    // Ex01) 주민등록번호 정규표현식
+    const jumin = /^\d{2}[0-1]\d{1}[0-3]\d{1}\-[1-4]\d{6}$/
+    console.log("패턴 매치 확인: " + '100813-3111111'.match(jumin));
+
+    const str1 = /[a-z]+/
+    console.log("영어소문자확인 match: " + "javascript".match(str1)); // javascript 출력
+    console.log("영어소문자확인 match: " + "javaScript".match(str1)); // java 출력
+    console.log("영어소문자확인 match: " + "Javascript".match(str1)); // avascript 출력
+    console.log("영어소문자확인 match: " + "JavaScript".match(str1)); // ava 출력
+    console.log("영어소문자확인 matchAll: " + "JavaScript".matchAll("[a-z]+")); // [object RegExp String Iterator]
+
+    var pattern = new RegExp("[a-z]")
+    console.log("영어소문자확인 exec: " + pattern.exec("JavaScript")); // 있으면 축출       :  a
+    console.log("영어소문자확인 test: " + pattern.test("JavaScript")); // 있으면 true/flase : true
+    console.log("영어소문자확인 replace: " + "JavaScript".replace(pattern, "[A-Z]")); // 왼쪽부터 첫번째만 replace함. J[A-Z]vaScript
+    console.log("영어소문자확인 search: " + "JavaScript".search("[S]")); // 4
+
+    var pattern = new RegExp("[a-z]", "g")
+    console.log("영어소문자확인 exec: " + pattern.exec("JavaScript")); // 있으면 축출       :  a
+    console.log("영어소문자확인 test: " + pattern.test("JavaScript")); // 있으면 true/flase : true
+    console.log("영어소문자확인 replace: " + "JavaScript".replace(pattern, "[A-Z]")); // J[A-Z][A-Z][A-Z]S[A-Z][A-Z][A-Z][A-Z][A-Z]
+    console.log("영어소문자확인 search: " + "JavaScript".search("[S]")); // 4
+
+    var pattern = new RegExp("[a-z]", "gi")
+    console.log("영어소문자확인 exec: " + pattern.exec("JavaScript")); // 있으면 축출       :  J
+    console.log("영어소문자확인 test: " + pattern.test("JavaScript")); // 있으면 true/flase : true
+    console.log("영어소문자확인 replace: " + "JavaScript".replace(pattern, "[A-Z]")); //[A-Z][A-Z][A-Z][A-Z][A-Z][A-Z][A-Z][A-Z][A-Z][A-Z]
+    console.log("영어소문자확인 search: " + "JavaScript".search("[S]")); // 4
+    // console.log('abc'.match(undefined));
+    // console.log('abc'.match(null)); //null
+    // console.log('abc'.match(''));
+
+    const moods = 'happy 🙂, confused 😕, sad 😢'; //이모티콘 단축키 : windowkey + .
+    const regexpEmoticons = /[\u{1F600}-\u{1F64F}]/gu;
+    console.log(moods.match(regexpEmoticons));  //🙂 😕 😢
+
+    const chessStory = 'He played the King in a8 and she moved her Queen in c2.';
+    const regexpCoordinates = /\w\d/g;
+    console.log(chessStory.match(regexpCoordinates)); // a8 c2
+
+    const text = 'A quick fox';
+
+    const regexpLastWord = /\w+$/;
+    console.log(text.match(regexpLastWord));
+    // Expected output: Array ["fox"]
+
+    const regexpWords = /\b\w+\b/g;
+    console.log(text.match(regexpWords));
+    // Expected output: Array ["A", "quick", "fox"]
+
+    // x(?=y) "x" 다음에 "y"가 오는 경우에만 "x"를 리턴
+    const regexpFoxQuality = /\w+(?= fox)/;
+    console.log(text.match(regexpFoxQuality));
+    // Expected output: Array ["quick"],  quick일 경우 A출력
+
+    // x(?!y) "x" 다음에 "y"가 오지 않는 경우에만 "x"를 리턴
+    const regexpFoxQuality2 = /\w+(?! fox)/;
+    console.log(text.match(regexpFoxQuality2));
+    // Expected output: Array ["A"]
+    console.log(/\d+(?!\.)/g.exec("3.141592")); // 141592 출력
+
+    // (?<=y)x "x" 앞에 "y"가 오는 경우에만 "x"를 리턴
+    const oranges = ["ripe orange A", "green orange B", "ripe orange C"];
+    const ripeOranges = oranges.filter((fruit) => /(?<=ripe )orange/.test(fruit));
+    console.log(ripeOranges); // [ 'ripe orange A', 'ripe orange C' ]
+
+    const fruits = ["Apple", "Watermelon", "Orange", "Avocado", "Strawberry"];
+    const fruitsStartsWithA = fruits.filter(fruit => /^A/.test(fruit));
+    console.log(fruitsStartsWithA);
+    const fruitsStartsWithNotA = fruits.filter(fruit => /^[^A]/.test(fruit));
+    console.log(fruitsStartsWithNotA);
+
+    const fruitsWithDescription = ["Red apple", "Orange orange", "Green Avocado"];
+    const enEdSelection = fruitsWithDescription.filter(el => /(en|ed)\b/.test(el),);
+    console.log(enEdSelection);
+
+
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

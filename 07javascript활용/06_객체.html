@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    //1)
+    var myCar = new Object();
+    myCar.make = 'KIA';
+    myCar.model = "Soul";
+    myCar.year = "1990";
+    //2)
+    myCar = {
+      make: "KIA",
+      model: "Retona",
+      year: "1990"
+    }
+    //3)
+    myCar = new Object(), str1 = "make", str2 = "model", str3 = "year";
+    myCar[str1] = "KIA"; myCar[str2] = "Retona"; myCar[str3] = "1990";
+
+    console.log(myCar['make']);
+    console.log(myCar[str1]);
+    console.log(myCar.make);
+    //4) 생성자 함수를 사용하여 객체 생성하기
+    function MyCar(make, model, year) {
+      this.make = make;
+      this.model = model;
+      this.year = year;
+    }
+    var myCar = new MyCar("Hyundai", "IONIQ6", "2020");
+
+    //동적 속성 할당
+    function Person(name, gender) {
+      this.name = name;
+      this.gender = gender;
+    }
+    const owner = new Person("LGH", "male");
+    myCar.wheel = 4;
+    myCar.owner = owner;
+
+    for (const k in myCar) {
+      console.log(`${k} : ${myCar[k]}`);
+    }
+    console.log(myCar.owner.name);
+
+    console.log(listAllProperties(myCar));
+    //myCar의 숨어 있는 속성까지 출력
+    function listAllProperties(o) {
+      let objectToInspect = o;
+      let result = [];
+      while (objectToInspect !== null) {
+        result = result.concat(Object.getOwnPropertyNames(objectToInspect));
+        objectToInspect = Object.getPrototypeOf(objectToInspect);
+      }
+      return result;
+    }
+
+    //5) Object.create 
+    const Animal = {
+      type: "무척추 동물",
+      displayType: function () {
+        console.log(this.type);
+      },
+    }
+    const animal1 = Object.create(Animal);
+    animal1.displayType();
+
+    const fish = Object.create(Animal);
+    fish.type = "물고기";
+    fish.displayType();
+
+    //동적 속성 할당 2
+    const Manager = {name: "John",age: 27,job: "소프트웨어 엔지니어",};
+    const Intern = {name: "Ben",age: 21,job: "소프트웨어 엔지니어 인턴",};
+
+    function sayHi() {
+      console.log(`안녕하세요, 제 이름은 ${this.name}입니다.`);
+    }
+
+    // 두 객체 모두에 sayHi 함수 추가
+    Manager.sayHi = sayHi;
+    Intern.sayHi = sayHi;
+
+    Manager.sayHi(); // 안녕하세요, 제 이름은 John 입니다.'
+    Intern.sayHi(); // 안녕하세요, 제 이름은 Ben 입니다.'
+
+    //동적 속성 삭제
+    delete Manager.age;
+    console.log("age" in Manager);
+    console.log("name" in Manager);
+
+    // 접근자(getter), 설정자(setter)
+    const o = {
+      a: 7,
+      get b() {
+        return this.a + 1;
+      }, 
+      set c(x) {
+        this.a = x/2;
+      }
+    }
+    console.log(o.a);
+    console.log(o.b);
+    o.c = 50;
+    console.log(o.a);
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
