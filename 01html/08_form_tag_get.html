@@ -101,6 +101,7 @@
             hour = today.getHours(); minute = twoLength(today.getMinutes()) ; second = twoLength(today.getSeconds());
             return toDate + "T" + twoLength(hour) + twoLength(minute)
         }
+        
         document.querySelector("#calendar2").value=toDayTime();
         console.log(calendar.value)
 

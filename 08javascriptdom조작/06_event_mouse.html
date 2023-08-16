@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {height: 100vh;width: 100%;}
+  </style>
+  <script>
+    // 마우스 Event :: onclick 이벤트는 마우스를 클릭했을 경우다.
+    // onclick, ondblclick, onmousedown, onmousemove, onmouseout, onmouseover, onmouseup, onmove
+    window.onload = () => {
+      var i = 1;
+      var step = 1;
+      document.querySelector("#btn").onclick = () => {
+        var star = ''
+        for (let j = 0; j < i; j++) {
+          star += '❤';
+        }
+        document.querySelector("#btn").textContent = "별점 - " + star;
+        document.querySelector("#inputHeart").value = "하트점수 - " + star;
+        i += step;
+        if(i>4 || i<1) step *= -1;
+      }
+      document.querySelector("#inputHeart").onmouseenter = function() {
+        this.style.color = "red"; //this는 익명함수일 때 자신을 가리킴. 화살표함수는 전역변수를 가리킴.
+        this.style.cursor = "pointer";
+      }
+      document.querySelector("#inputHeart").onmouseout = function() {
+        this.style.color = "black";
+      }
+      document.body.ondblclick = function (e) {
+        console.log(`x:${e.screenX} / y:${e.screenY}`);
+      }
+      document.body.onmouseover = function (e) {
+        console.log(`x:${e.screenX} / y:${e.screenY}`);
+      }
+      document.body.onmousemove =  e => {
+        console.log(`x:${e.screenX} / y:${e.screenY}`);
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <button id="btn">별점 - </button>
+  <input type="button" id="inputHeart" value="하트점수 - ">
+</body>
+
+</html>

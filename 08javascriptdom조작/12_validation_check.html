@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>간단한 입력 양식</title>
+  <style>
+    body { background: #999;}
+    .lb {font-weight: bold; text-align: center; display: inline-block;width:70px;}
+    input {width:130px;border:1px solid #d8d8d8;border-radius:20px;height:20px;}
+    button {width:135px;border:1px solid #d8d8d8;border-radius:20px;height:25px;}
+    div {height: 26px;margin-bottom: 2px;}
+  </style>
+  <script>
+    window.onload = () => {
+      //validation check : 유효성 검사
+      var id = document.querySelector("#id");
+      var pw = document.querySelector("#pw");
+      var btnSend = document.querySelector("#btnSend");
+      btnSend.onclick = function (e) {
+        e.preventDefault();
+        if(id.value == "") {
+          alert('ID를 확인하세요');
+          id.focus();
+          return;
+        }
+        if(pw.value == "") {
+          alert('비밀번호를 확인하세요');
+          pw.focus();
+          return;
+        }
+
+        document.frm.submit();
+      }
+    }
+  </script>
+</head>
+<body>
+  <h1>간단한 입력 양식</h1>
+  <form name="frm" action="" method="post">
+    <div><span class="lb">아이디</span><input type="text" name="" id="id" value=""></div>
+    <div><span class="lb">비밀번호</span><input type="password" name="" id="pw"></div>
+    <div><span class="lb"></span><button id="btnSend">제출</button></div>
+  </form>
+</body>
+</html>

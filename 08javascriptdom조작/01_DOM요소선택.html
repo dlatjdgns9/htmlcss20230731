@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+      <script>
+        window.onload = function () {
+            //id로 선택하기
+            var subject = document.getElementById('subject') // 객체의 주소값으로 전부를 변수로 지정
+            subject.textContent = 'DOM 요소를 ID로 선택하기 1'
+            subject.onclick = () => alert('hello1');
+            subject.style.backgroundColor = 'red';
+
+            var subjectContent = document.getElementById('subject').textContent // 객체의 속성만 들고 옴
+            subjectContent = 'DOM 요소를 ID로 선택하기 2'
+            subjectContent.onclick = () => alert("hello2")
+
+            // tag로 선택하기
+            var titles = document.getElementsByTagName('h2');
+            titles[0].style.background = 'blue';
+            titles[1].style.background = 'blue';
+            for (let i = 0; i < titles.length; i++) {
+                const element = titles[i];
+                element.style.color = 'white'
+                
+            }
+
+            // class로 선택하기
+            var menus = document.getElementsByClassName('menu');
+            menus[0].textContent = 'GoodBye Yellow Brick Road'
+            for (let i = 0; i < menus.length; i++) {
+                const element = menus[i];
+                element.style.width = '100px'
+                element.style.fontSize = '20pt'
+            }
+            // name으로 선택하기
+            var menus = document.getElementsByName('rbGender')
+
+
+            // css로 선택하기 (단수)
+            var title1 = document.querySelector("#title1")
+            title1.setAttribute('data-id', 'title1')
+            title1.dataset.dateBirth = '2023-01-01'
+
+            // css로 선택하기 (복수)
+            var titles2 = document.querySelectorAll(".menu")
+            for (let i = 0; i < titles2.length; i++) {
+                const element = titles2[i];
+                element.dataset.value = 'titles2-' + i;
+            }
+
+            //name 속성으로 접근하기
+            document.frm.onsubmit = function () {
+                return false;
+            }
+        }
+      </script>
+</head>
+<body>
+    <h1 id="subject">DOM 요소 선택하기</h1>
+    <h2 class="title" id="title1">글자 태그 요소 1</h2>
+    <h2 class="title">글자 태그 요소 2</h2>
+    <span class="menu">span tag 요소 1</span>
+    <span class="menu">span tag 요소 2</span>
+    <form action="" name="frm"></form>
+</body>
+</html>

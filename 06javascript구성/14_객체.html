@@ -6,12 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <script>
-    //1)
+    // 사용자 객체 만들기 위한 방법
+    //1) 사용자 객체 기본형으로 만들기
     var myCar = new Object();
     myCar.make = 'KIA';
     myCar.model = "Soul";
     myCar.year = "1990";
-    //2)
+    //2) 리터럴 방식으로 만들기
     myCar = {
       make: "KIA",
       model: "Retona",
@@ -106,6 +107,16 @@
     console.log(o.b);
     o.c = 50;
     console.log(o.a);
+
+    const fruit = {name: "apple"}
+    const fruitbear = {name: "apple"}
+    // const fruitbear = fruit;
+    fruit.name = 'grape'
+    console.log(fruit == fruitbear);
+    console.log(fruit === fruitbear);
+    console.log(fruit.name === fruitbear.name);
+
+
 
   </script>
 </head>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // Array
+    var pen = new Array(4);
+    pen[0] = "red"
+    pen[1] = 'green'
+    pen[2] = 'blue'
+    pen[3] = 'orange'
+    var pen = ['red', 'green', 'blue', 'orange'];
+    var pen = new Array('red', 'green', 'blue', 'orange');
+
+    //Array(배열)의 속성 :: length, constructor, prototype
+    //Array(배열)의 기능 :: concat, join, pop, push, shift, unshift, splice, slice, sort, reverse
+
+    console.log('기존: ' + pen);
+    pen.reverse();
+    console.log('변경: ' + pen);
+    pen.shift();
+    console.log(pen);
+    pen.unshift('pink', 'brown')
+    console.log(pen);
+    console.log(pen.splice(1));
+    console.log(pen);
+    console.log(pen.splice(1, 2));
+    console.log(pen);
+    console.log(pen.splice(1, 2, 'apple', 'number'));
+    console.log(pen);
+    pen.sort();
+    console.log(pen);
+    pen.sort((a, b) => {
+      if (a > b) return -1;
+      if (a < b) return 1;
+      if (a == b) return 0;
+    });
+    console.log(pen);
+
+    //pop()맨끝에 요소를 삭제, push() 맨마지막에 요소 추가 ==> stack운영 가능
+    const arr = [2, 1, 3, 5];
+    arr.sort();//오름차순 정렬
+    console.log(arr);
+    arr.sort((a, b) => {
+      return a - b;
+    });
+    console.log(arr);
+    arr.sort((a, b) => {
+      return b - a;
+    });
+    console.log(arr);
+
+    // 1) foreach : 각각에 대한 처리
+    let num = [1, 2, 3, 4, 5]
+    num.forEach((item, index, array) => {
+      console.log(`배열의 원소는 ${item}, 인덱스는 ${index}, 배열전체는 ${array}`);
+    });
+
+    // 2) map : 각각에 대한 처리를 해서 돌려줌
+    let ret = num.map((item, index, array) => {
+      console.log(`배열의 원소는 ${item}, 인덱스는 ${index}, 배열전체는 ${array}`);
+      return item * 2;
+    });
+
+    // 3) filter : 각각에 대한 처리를 해서 조건에 맞는 것만 돌려줌.
+    let ret2 = num.filter((item, index, array) => {
+      console.log(`배열의 원소는 ${item}, 인덱스는 ${index}, 배열전체는 ${array}`);
+      return item % 2 == 0;
+    });
+    console.log(ret2);
+
+    // 4) reduce : 각각에 대한 처리를 해서 조건에 맞는 것만 돌려줌.
+    let sum = num.reduce((hap, item, index) => {
+      return hap + item*2;
+    }, 0); // hap에 대한 초기 값 지정 0
+    console.log(sum);
+
+    //5) forin, forof
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

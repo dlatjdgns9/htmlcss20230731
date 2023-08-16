@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    //즉시 실행 함수는 정의 되자 마자 즉시 실행되는 함수
+    (function () {
+      console.log("Immediately Invoked Function Expression");
+    })();
+    (() => {
+      console.log("IIFE(즉시 실행 함수)");
+    })();
+    // 사용하는 이유
+    // 1) 필요없는 전역 변수의 생성을 줄일 수 있다.
+    // 2) private한 변수를 만들 수 있다. 내부변수를 외부로부터 encapsulte 할 수 있다.
+
+    let isAdult;
+    (function init(age) {
+      let currentAge = age;
+      isAdult = age>=20?true:false;
+    })(20)
+    console.log(isAdult);
+    // console.log(currentAge);// error 발생
+
+    const Counter = (function iife() {
+      let current = 0; //private한 변수 선언. 클로저를 통한 접근외에는 접근 및 수정 불가
+      return {
+        getCurrentValue: function () {return current;},
+        increaseValue: function () {return ++current;}, 
+        decreaseValue: function () {return --current;}
+      };
+    })(); 
+    console.log(Counter.getCurrentValue());
+    console.log(Counter.increaseValue());
+    console.log(Counter.decreaseValue());
+
+  </script>
+</head>
+
+<body>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML 요소 생성하기</title>
+  <style>
+    #div1 {
+      width: 400px;
+      height: 300px;
+      border: 1px solid black;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="div1">위의 텍스트는 동적으로 추가했습니다.</div>
+</body>
+<script>
+  document.body.onload = addElement;
+
+  function addElement() {
+    // create a new div element
+    var newDiv = document.createElement("div");
+    newDiv.style.position = 'relative';
+    // and give it some content
+    var newContent = document.createTextNode("환영합니다!");
+    // add the text node to the newly created div
+
+    //추가, Node Object만 사용,DOMString(text) 사용 불가, 한개만 추가, return 있음.
+    // newDiv.appendChild(newContent); //해당 노드에 추가
+
+    // 옵션은 자식 노드를 함께 복사 유무 결정, 자식노드 함께 복사시 true 옵션
+    var newContent2 = newContent.cloneNode(true); //자식 노드 함께 복사 
+
+    //추가, Node Object or DOMString(text) 사용, 여러개 추가, return 없음.
+    // newDiv.appendChild('hello');  //DOMString(text) 사용 가능
+    newDiv.append(newContent, newContent2); //복수개 지정 가능
+    // newDiv.appendChild(newContent2);
+
+    var currentDiv = document.getElementById("div1");
+    // add the newly created element and its content into the DOM
+    
+    // document.body.insertBefore(newDiv, currentDiv);//body 안에서 insertBefore(A, B) - B 앞에 A를 추가
+    // document.body.before(newDiv, newContent2); //body 이전에 berfore(A, B) - B 앞에 A를 추가
+
+    // newDiv.insertAfter(currentDiv);//에러 발생, 이런 명령 없음.
+    document.body.after(newDiv); //body 이후에 after(A) - Body 뒤에 A를 추가, 인자는 단 1개만.
+  }
+</script>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    window.onload = () => {
+      var sendMsg = document.querySelector("#sendMsg")
+      var msg = document.querySelector("#msg")
+      // onkeypress, onkeydown, onkeyup
+      msg.onkeydown = (e) => {
+        if (e.keyCode == 13) { //keyCode가 13번이면 엔터키
+          if (msg.value != "")
+            sendMsg.append(msg.value + "\n");
+          msg.value = "";
+          msg.focus();
+        }
+      }
+      msg.focus();
+    }
+  </script>
+</head>
+
+<body>
+  <form action="#" onsubmit="return false;">
+    <textarea name="sendMsg" id="sendMsg" cols="30" rows="10"></textarea><br>
+    <input type="text" name="msg" id="msg" placeholder="메세지"><br>
+    <input type="hidden" name="h" id="h"><br>
+  </form>
+  <script>
+    document.querySelector("#msg").focus();
+  </script>
+</body>
+
+</html>

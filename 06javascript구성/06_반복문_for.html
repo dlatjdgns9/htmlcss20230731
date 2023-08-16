@@ -1,38 +1,62 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script>
-        window.onload = function () {
-            
-            for (let i = 10; i > 0; i--) {
-                setInterval(printCountDown(i), 1000)
 
-            }    
-            function printCountDown(i) {
-                document.querySelector("div").textContent = i;
-                console.log(i);
-            }
-        }
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    window.onload = function () {
+	    var i = 10;
+	    const countDown = setInterval(() => {
+		    document.querySelector("div:first-of-type").innerHTML = `<span>${i}</span>`;
+		    i--;
+		    if(i < 0) clearInterval(countDown); 
+	    },1000)
+	  
+      var btn = document.getElementById("btn");
+      btn.addEventListener("click", function() {
+        var j = 10;
+	    const countDown2 = setInterval(() => {
+		    document.querySelector("div:last-of-type").innerHTML = `<span>${j}</span>`;
+		    j--;
+		    if(j < 0) clearInterval(countDown2); 
+	    },1000)
         
-        function sleep(sec) {
-            let start = Date.now()
-            let now = start
-            while(now-start < sec){
-                now = Date.now()
-            }
-        }
-    </script>
-    <style>
-        div{
-            font-size: 40px;
-        }
-    </style>
+      });
+    }
+    
+    //javascript에는 어느 시간 기다리는 sleep 함수가 없다.
+    function sleep(sec) {
+	    let i = 10;
+	    var sign = document.querySelector("div:last-of-type");
+	    while (i > 0){
+		    console.log(i);
+		    let start = Date.now(), now = start;
+		    while (now - start < sec) {
+		      now = Date.now();
+		      sign.textContent = i;
+		    }
+		    i--;
+	    }
+    }
+
+  </script>
+  <style>
+    div {
+      display: inline-block; float: left;
+	  font-size: 30px; width: 250px; height: 200px;color: white;text-align: center;line-height: 200px;
+    }
+	div:first-of-type {background: red;}
+	div:last-of-type  {background: blue;}
+  </style>
 </head>
+
 <body>
-    <h1>for Loop</h1>
-    <div></div>
+  <h1>for Loop :: Single Thread</h1>
+  <div>Auto Countdown</div>
+  <div></div>
+  <input id="btn" type="button" value="Manual Countdown" />
 </body>
+
 </html>

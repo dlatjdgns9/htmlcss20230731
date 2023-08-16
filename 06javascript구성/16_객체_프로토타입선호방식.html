@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    function Person() {}
+    var bongsuk = new Person();
+    var heesoo = new Person();
+
+    //동적으로 메서드 추가
+    Person.prototype.getType = function () {
+      return "human"
+    }
+    console.log(bongsuk.getType());
+    console.log(heesoo.getType());
+    
+    heesoo.age = 18; //동적으로 속성 추가
+    console.log(bongsuk.age);
+    console.log(heesoo.age);
+
+    //프로토타입의 상속관계로 인해서 코드의 재사용이 가능해짐.
+
+    function Member(name) {this.name = name || '길동';}
+    Member.prototype.getName = function () {return this.name;}
+    
+    //1)
+    //문제점: 자식 객체생성시 부모생성자가 아닌 경우 자손의 인자가 반영안됨.
+    function Korean(name) {}
+    Korean.prototype = new Member();
+    
+    //2) 1번 문제점 해결 위해서 생성자 빌려쓰기
+    //문제점: 부모객체의 this로 된 멤버들만 물려받는 단점. 부모객체의 프로토타입 객체의 멤버들은 상속 안됨.
+    function Korean(name) {Member.apply(this, arguments);}
+
+    //3) 1번과 2번의 문제점들을 보완해주기 위해서 위의 1,2번을 같이 적용
+    //문제점: 자손이나 조상이나 둘다 name속성을 가지는 문제가 발생
+    function Korean(name) {Member.apply(this, arguments);}
+    Korean.prototype = new Member();
+
+    //4) 부모생성자를 한번도 호출하지 않으면서 프로토타입 객체를 공유하는 방법
+    //문제점: 부모함수로 생성한 객체를 거치지 않고 부모의 프로토타입으로 바로 연결 되는 문제
+    function Korean(name) {this.name = name;}
+    Korean.prototype = Member.prototype;
+
+    var kor1 = new Korean();
+    console.log(kor1.getName());
+    var kor2 = new Korean("희수");
+    console.log(kor2.getName()); 
+
+    //5) prototypal한 방식의 재사용
+    // 장점: 객체 생성과 동시에 부모객체를 지정해서 코드의 재활용을 간단하게 구현
+    // 결론: new연산자와 함수를 통해 생성한 객체를 사용하는 1~4번의 classical한 방식보다 prototypal한 방식 선호
+    var member = {
+      type: '인간',
+      getType: function () {
+        return this.type
+      },
+      getName: function () {
+        return this.name;
+      }
+    };
+    var heesoo = Object.create(member);
+    heesoo.name = '희수';
+    console.log(heesoo.getType());
+    console.log(heesoo.getName());
+    
+
+    
+  </script>
+</head>
+
+<body>
+
+</body>
+</html>

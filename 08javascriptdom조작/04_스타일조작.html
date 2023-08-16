@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+        * {padding: 0; margin: 0;}
+        .on-text{color : #abcdef}
+        .off-text{color:black}
+        .on-size{font-size: 30pt;}
+    </style>
+    <script>
+        window.onload = () => {
+            var output = ''
+            for (let i = 0; i < 256; i++) {
+                output += '<div></div>'
+            
+            }   
+            document.body.innerHTML = output
+
+            var divs = document.querySelectorAll('div')
+            for (let i = 0; i < divs.length; i++) {
+                const element = divs[i];
+                element.style.height = '2px'
+                element.style.backgroundColor = `rgb( ${i+20}, ${i+20}, ${i+80})`
+            }
+            var subject = document.createElement('h1')
+            subject.setAttribute('id', 'subject')
+            subject.textContent = 'Hello'
+            document.body.append(subject)
+
+            document.querySelector('#subject').classList.add('on-text', 'on-size')
+            //document.querySelector('#subject').classList.remove('on-text')
+            document.querySelector('#subject:hover').classList.toggle('on-text')
+            console.log(document.querySelector('#subject').classList.contains('on-text'));
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

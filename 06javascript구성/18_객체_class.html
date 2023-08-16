@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // ES6 기존 사용자 객체생성방법과 다른 객체를 만들기 위한 Class()함수가 추가
+    // class를 선언하는 방식과 class식으로 만드는 방식
+    // 반드시 class를 정의하고 난 뒤에 사용할 것
+    class Book {
+      constructor(title, actor, year){
+        this.title = title;this.actor = actor; this.year = year;
+      }
+      list(){
+        console.log(`${this.title}: ${this.actor}: ${this.year}`);
+      }
+    }
+
+    const it = [
+      new Book('짜라투스트라는 이렇게 말했다.', '니체', 1910),
+      new Book('별이 헤는 밤', '윤동주', 1930),
+    ];
+    it[0].list();
+    it[1].list();
+
+    class Unit {
+      constructor(x, y){this.x = x; this.y = y;}
+      coordinate(){
+        console.log(`(${x},${y})`);
+      }
+    }
+
+    class Marine extends Unit {
+      constructor(x,y){ super(x,y); }
+      steampack(enemy) {
+        console.log(`(${this.x}, ${this.y}) 좌표에서 ${enemy}에게 스팀팩 공격을 시전하였습니다.`);
+      }
+      toString() {
+        return 'marine'
+      }
+    }
+
+    const marine1 = new Marine(0,0);
+    const marine2 = new Marine(10,10);
+    marine1.steampack(marine2);
+
+  </script>
+</head>
+
+<body>
+
+</body>
+</html>
