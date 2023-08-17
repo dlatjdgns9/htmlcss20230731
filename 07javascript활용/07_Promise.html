@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // Promise : 주로 비동기적인 로직을 하나의 값으로 처리할 때 사용해서 순서를 제어하기 위함.
+    // Promise 구조
+    const condition = 0;
+
+    //promise 선언
+    const promise = new Promise((resolve, reject) => {
+      if (condition) resolve('success'); else reject('fail');
+    })
+
+    //promise 실행
+    promise.then(msg => console.log(msg))
+      .catch(err => console.log(err))
+      .finally(console.log('무조건 진행되는 코드'));
+
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

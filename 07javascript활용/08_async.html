@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    // 1) 비동기적으로 작동하는 상황 => 각기 다른 순서로 출력
+    // const job1 = () => {
+    //   const r = Math.random() * 100
+    //   setTimeout(() => {console.log(1);}, r)
+    // }
+    // const job2 = () => {
+    //   const r = Math.random() * 100
+    //   setTimeout(() => {console.log(2);}, r)
+    // }
+    // const job3 = () => {
+    //   const r = Math.random() * 100
+    //   setTimeout(() => {console.log(3);}, r)
+    // }
+    // job1(); job2(); job3();
+
+    // 2) 비동기적으로 작동하는 상황 => 
+    // Hi, Bye 출력 후, async function1과 2가 순차적으로 출력
+    // setTimeout은 web APIS의 콜스택에 쌓인 후 처리가 끝난 뒤 event loop로 처리
+    console.log("Hi");
+    setTimeout(() => {
+      console.log("async function1 complete");
+    }, 1000);
+
+    setTimeout(() => {
+      console.log("async function2 complete");
+    }, 1000);
+    console.log("Bye");
+
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

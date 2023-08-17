@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    var pairs = new Map();
+    pairs.set("dog", "mungmungi");
+    pairs.set("cat", "nyangi");
+    pairs.set("elephant", "jambo");
+    console.log(pairs.size);
+    console.log(pairs.get("dog"));
+    for (const [k, v] of pairs) {
+      console.log(k + " goes " + v);
+    }
+
+    var mySet = new Set();
+    mySet.add(1); mySet.add("something"); mySet.add("foo");
+    console.log(mySet.has(1)); //true
+    mySet.delete("foo"); console.log(mySet); //2
+    var mySet2 = new Set([1,2,3,3,4,4,5]);
+    console.log(mySet2); // set을 출력
+    mySet3 = Array.from(mySet2); //배열이 된 상태
+    console.log([...mySet3]); // 배열을 출력
+
+
+    let lotto = new Set();
+    while (lotto.length <= 6) {
+      lotto.add(Math.floor(Math.random()*45)+1)
+    }
+    const tmp = Array.from(lotto)
+    console.log(Array.from(lotto)); //1) Set객체를 배열로 변경
+    console.log(Array.isArray(tmp));
+    console.log(tmp.sort());
+
+    const tmp2 = [...lotto] //2) Set객체를 배열로 변경
+    console.log(tmp2.sort());
+
+    const tmp3 = lotto.forEach(el => tmp3.push(el)) //3) forEach를 이용해서 set을 배열로 
+
+
+    const sortFnc = function (a, b) {
+        if(a>b) return 1
+        if(a<b) return -1
+        if(a==b) return 0
+    }
+    
+    console.log(tmp.sort(sortFnc));
+    console.log(tmp2.sort(sortFnc));
+
+    // 집합 연산
+    var setA = new Set([1,2,3,4])
+    var setB = new Set([3,4,5,6])
+    var 교집합 = new Set([...setA].filter(x=> setB.has(x)))
+    console.log("교집합(Intersection): " + [...교집합]);
+    var 차집합 = new Set([...setA].filter(x => !setB.has(x)))
+    console.log("차집합(Difference): " + [...차집합]);
+    var 합집합 = new Set([...setA, ...setB])
+    console.log("합집합(Union): " + [...합집합]);
+
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

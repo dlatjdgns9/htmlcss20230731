@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script>
+    class Queue{
+      constructor() {this.a = []}
+      //큐의 첫번째 원소를 가져올 때
+      front(){
+        if(this.a.length === 0){
+          console.log("Empty!"); return;
+        } else {
+          return this.a[0]
+        }
+      }
+      //insert
+      enqueue(value){
+        this.a.push(value); this.getList()
+      }
+      //pop
+      dequeue() {
+        if(this.a.length == 0){
+          console.log("Empty!"); return;
+        } 
+        return this.a.shift(); 
+      }
+      //data list
+      getList() {
+        console.log(this.a);
+      }
+      length() {
+        return this.a.length;
+      }
+    }
+    const q = new Queue();
+    q.enqueue(1); q.enqueue('a'); q.enqueue([3,4,5]); 
+    console.log(q.length());
+    // while ((item = q.dequeue()) !== undefined) {
+    //   console.log(item);
+    // }
+    const len = q.length(); // 길이값을 고정으로 사용하기 위함.
+    for (let i = 0; i < len; i++) {
+      console.log("q.front(): " + q.front()); 
+      q.dequeue();
+    }
+    console.log(q.a);
+  </script>
+</head>
+
+<body>
+
+</body>
+</html>
